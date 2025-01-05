@@ -8,10 +8,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
-        <html lang="en" data-oid="6nvi4s1">
-            <body className="antialiased" data-oid="g6y.kn_">
-                {children}
-            </body>
+        <html lang="en">
+            <body className="antialiased border-[#00000000] border-0">{children}</body>
         </html>
     );
 }
