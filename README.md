@@ -21,3 +21,13 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) in Onlook to see the result.
+
+## API
+
+### `GET /api/woof`
+
+Returns a friendly bark as JSON:
+
+```json
+{ "sound": "woof", "dog": "cute" }
+```
