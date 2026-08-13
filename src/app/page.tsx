@@ -103,11 +103,11 @@ export default function Page() {
                 {/* Speech bubble */}
                 {isHappy && bark && (
                     <div
-                        className="absolute -top-24 -right-16 z-20 bg-white text-black text-3xl font-bold px-6 py-3 rounded-2xl shadow-lg motion-safe:animate-pop-in"
+                        className="absolute -top-24 -right-16 z-20 bg-white dark:bg-neutral-800 text-black dark:text-neutral-100 text-3xl font-bold px-6 py-3 rounded-2xl shadow-lg motion-safe:animate-pop-in"
                         data-oid="dog-bubble"
                     >
                         {bark}!
-                        <div className="absolute -bottom-2 left-8 w-5 h-5 bg-white rotate-45"></div>
+                        <div className="absolute -bottom-2 left-8 w-5 h-5 bg-white dark:bg-neutral-800 rotate-45"></div>
                     </div>
                 )}
                 {/* Floating hearts */}
