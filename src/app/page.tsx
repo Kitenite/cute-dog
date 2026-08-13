@@ -2,6 +2,8 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import ThemeToggle from '@/components/ThemeToggle';
+
 type Heart = { id: number; x: number };
 
 export default function Page() {
@@ -94,6 +96,7 @@ export default function Page() {
             className="relative w-screen h-screen flex justify-center items-center select-none"
             data-oid="b2jyvuu"
         >
+            <ThemeToggle />
             <div className="relative" data-oid="dog-wrap">
                 {/* Tail */}
                 <div
@@ -103,11 +106,11 @@ export default function Page() {
                 {/* Speech bubble */}
                 {isHappy && bark && (
                     <div
-                        className="absolute -top-24 -right-16 z-20 bg-white text-black text-3xl font-bold px-6 py-3 rounded-2xl shadow-lg motion-safe:animate-pop-in"
+                        className="absolute -top-24 -right-16 z-20 bg-white text-black dark:bg-neutral-800 dark:text-white text-3xl font-bold px-6 py-3 rounded-2xl shadow-lg motion-safe:animate-pop-in"
                         data-oid="dog-bubble"
                     >
                         {bark}!
-                        <div className="absolute -bottom-2 left-8 w-5 h-5 bg-white rotate-45"></div>
+                        <div className="absolute -bottom-2 left-8 w-5 h-5 bg-white dark:bg-neutral-800 rotate-45"></div>
                     </div>
                 )}
                 {/* Floating hearts */}
