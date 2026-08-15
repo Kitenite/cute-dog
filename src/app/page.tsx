@@ -6,16 +6,37 @@ import ThemeToggle from '@/components/ThemeToggle';
 
 type Heart = { id: number; x: number };
 
+const DOG_FACTS = [
+    'Dogs can learn over 100 words and gestures.',
+    "A dog's nose print is unique, much like a human fingerprint.",
+    'Dogs can smell about 10,000 to 100,000 times better than humans.',
+    "A wagging tail doesn't always mean a happy dog — direction matters.",
+    'Puppies are born deaf and blind, but their sense of smell works right away.',
+    'Dogs dream just like humans do, and puppies dream more than adults.',
+    "The Basenji is known as the 'barkless dog' — it yodels instead.",
+    'Dogs have three eyelids, including one that keeps their eyes moist.',
+    "A greyhound can reach speeds of up to 45 miles per hour.",
+    'Dogs curl up when they sleep to protect their vital organs — an instinct from their ancestors.',
+    "Dogs' noses are wet to help absorb scent chemicals.",
+    'Petting a dog can lower your blood pressure — and theirs too.',
+];
+
 export default function Page() {
     const [petIntensity, setPetIntensity] = useState(0);
     const [isHappy, setIsHappy] = useState(false);
     const [twitchingEar, setTwitchingEar] = useState<'left' | 'right' | null>(null);
     const [hearts, setHearts] = useState<Heart[]>([]);
     const [bark, setBark] = useState<string | null>(null);
+    const [fact, setFact] = useState<string | null>(null);
 
     const happyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
     const heartId = useRef(0);
     const cachedBark = useRef<string | null>(null);
+
+    // Pick the fact after mount to avoid a server/client hydration mismatch
+    useEffect(() => {
+        setFact(DOG_FACTS[Math.floor(Math.random() * DOG_FACTS.length)]);
+    }, []);
 
     // Random ear twitch every few seconds
     useEffect(() => {
@@ -236,6 +257,15 @@ export default function Page() {
                         </div>
                     </div>
                 </div>
+                {/* Random dog fact */}
+                {fact && (
+                    <p
+                        className="mt-8 max-w-[600px] text-center text-lg italic text-neutral-500 dark:text-neutral-400 motion-safe:animate-pop-in"
+                        data-oid="dog-fact"
+                    >
+                        {fact}
+                    </p>
+                )}
             </div>
         </div>
     );
